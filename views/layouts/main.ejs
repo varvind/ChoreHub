@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>ChoreHub</title>
+</head>
+<body>
+    <div class ="container" >
+        <div class = "row">
+                <div class ="col">
+                    <a href = "/dashboard/<%=user.familyid%>"><h2 style = "margin-top:11%">ChoreHub</h2></a>
+                </div>
+                
+                <div class = "col">
+                    <% if(family = "undefined") { %>
+                        <h3 style = "text-align: center; margin-top:8%">Welcome to Your Dashboard!</h3>
+                    <% } else { %>
+                        <h3 style = "text-align: center; margin-top:8%"><%=family%>'s Dashboard</h3>
+                    <%}%>
+                        
+                </div>
+                <div class = "col" >
+                    <% if (!loggedIn) {%>
+                        <button type="button" class="btn btn-outline-dark" style = "font-size:18; float: right; margin-top:24px ; margin-right: 3% ; color:white; background-color: #38a8f3; width: 25%; font-size: 90%;" onclick= "window.location.href = '/signup';">Sign Up</button>
+                        <button type="button" class="btn btn-outline-dark signUp"  style = "font-size:18; float : right; margin-top: 24px; margin-right: 3%;width: 25%; font-size: 90%;" onclick= "window.location.href = '/login';">Log in</button>
+                    <% } %> 
+                    <% if(loggedIn) { %>
+                        <div class="dropdown">
+                            <% if(user.image.id != "0") {%> 
+                                <img src = "/image/<%=user.image.filename%>" style = "width: 50px; height: 50px; float:right; margin-right:45px; border-radius: 10%;margin-top:28px;object-fit: cover;" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <% }  else { %>
+                                <img src = "../public/img/defaultProfileImage.png" style = "width: 50px; height: 50px; float:right; margin-right:45px; border-radius: 10%;margin-top:22px;object-fit: cover;" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <% } %>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/userprofile">View Profile</a>
+                                <a class="dropdown-item" href="/userlogout">Logout</a>
+                            </div>
+                        </div>
+
+                    <% } %>
+                </div>
+
+        </div>
+    </div>
+    <hr>
+    <%-body%>
+</body>
+</html>

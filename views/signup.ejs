@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href = "/">ChoreHub</a>
+    <form method="POST" action = "/user_signup" enctype = "multipart/form-data">
+        <input name = "firstName" placeholder="First Name" required="true">
+        <br>
+        <input name = "lastName" placeholder="Last Name" required="true">
+        <br>
+        <input name = "email" placeholder="Email" required="true">
+        <br>
+        <input name = "username" placeholder="Username" required="true">
+        <br>
+        <input name = "password"  type = "password" placeholder="Password" required="true">
+        <br>
+        <input type = "file" name = "image" id = "image" value = "image">
+        <br>
+        <button type= "submit">Submit</button>
+    </form>
+</body>
+</html>
